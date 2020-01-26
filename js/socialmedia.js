@@ -2,8 +2,8 @@
 
 let https = require('https');
 var URL = require('url').URL;
-subscription_key = "4810c1da73d649789ab462fc1ddc54af";
-endpoint = "https://eastus.api.cognitive.microsoft.com/";
+var subscription_key = "4810c1da73d649789ab462fc1ddc54af";
+var endpoint = "https://eastus.api.cognitive.microsoft.com/";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -62,7 +62,7 @@ function FacebookClick()
     
         FB.login(function(response) {
               if (response.authResponse) {
-          document.querySelTSector('#FacebookButton').disabled = true;
+          document.querySelector('#FacebookButton').disabled = true;
           /* make the API call */
           FB.api(
               "/" + response.authResponse.userID + "/posts",
@@ -85,7 +85,7 @@ function FacebookClick()
               //console.log('User cancelled login or did not fully authorize.');
               }
               
-              //console.log(response)
+              console.log(response)
           }, {scope: 'user_posts'});
           
       };
