@@ -3,11 +3,23 @@ const app = express()
 
 var score_num = 0;
 
+
+
+
+app.set('view engine', 'ejs')
+
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/static/views/index.html')
+    res.render('index')
+})
+app.get('/results', (req, res) => {
+    res.render('results')
+})
+app.get('/setup', (req, res) =>{
+    res.render('setup')
 })
 
-app.use(express.static('./static/views'))
+app.use(express.static(__dirname))
 
 app.listen(3000, 
     console.log('listening on port 3000')
@@ -27,7 +39,7 @@ let response_handler = function (response) {
     response.on('data', function (d) {
         body += d;
         score_num = parseFloat('0.' + body.match(/\d+/g)[2]);
-        console.log(score_num);
+        // console.log(score_num);
     });
     response.on('end', function () {
         let body_ = JSON.parse(body);
@@ -63,10 +75,58 @@ let documents = {
 var social_media_type = 'social';
 get_sentiments(documents);
 
-
-function TwitterClick()
+function FacebookClick()
 {
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 2665634096887061,
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v5.0'
+        });
+          
+        FB.AppEvents.logPageView();   
     
+        FB.login(function(response) {
+              if (response.authResponse) {
+          document.querySelTSector('#FacebookButton').disabled = true;
+          /* make the API call */
+          FB.api(
+              "/" + response.authResponse.userID + "/posts",
+              {'since':'last year'},
+              function (responsePost) {
+                if (responsePost && !responsePost.error) {
+                  /* handle the result */
+                  //console.log(responsePost)
+                  responsePost.data.forEach(postMessage => {
+                      if(postMessage.hasOwnProperty('message'))
+                      {
+                          console.log(postMessage.message)
+                      }
+                          
+                  });
+              }
+              }
+          );
+              } else {
+              //console.log('User cancelled login or did not fully authorize.');
+              }
+              
+              //console.log(response)
+          }, {scope: 'user_posts'});
+          
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));}
+
+function TwitterClick(){
+
 }
 
 function SpotifyClick()
