@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <!-- Page Setup -->
+        <title>ThoughtSpace</title>
+        
         <meta charset="utf-8">
         <meta name="viewport" content=" initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="icon" href="../public/img/finalLogo2.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <title>ThoughtSpace</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="../public/img/finalLogo2.png">
         <link rel="shortcut icon" type="image/x-icon" href="TSdark.png" />
+        
+        <!-- Style -->
         <style>
+            /* Home Page */
             body {
                 font-family: 'Roboto', sans-serif;
                 background-color: #D2EDF9;
@@ -33,53 +37,84 @@
             .container {
                 width: 100%;
             }
+            
+            /* Title */
+            .title {
+                width:100%;
+            }
+            .wtf {
+                font-family: 'Roboto Slab', serif;
+                margin:auto;
+                text-align: center;
+                padding-top:50px;
+                color:white;
+                font-size:100px;
+            }
+            .space {
+                color:#a5dcf3;
+                font-weight: bold;
+            }
+
+            /* Slogan & Start Button */
+            .slogan {
+                font-weight: bold;
+                color:white;
+                font-size:50px;
+                margin-top:20%
+            }
+            .you {
+                color:white;
+                font-family: 'Roboto Slab', serif;
+                color:#4bb8e7;
+            }
+            .btn-outline-primary {
+                border-color: #1FA6E0;
+                color:#1fa6e0;
+                font-weight: bold;
+                width:150px;
+                height: 60px; 
+            }
             .btn-outline-primary:hover {
                 background-color:#E9F6FC;
             }
             .btn-outline-primary:visited{
                 background-color:#E9F6FC;
             }
+            
+            /* Logo */
+            .logo {
+                width: 70%;
+                height:auto;
+                margin-top:20%;
+                margin-left:25%;
+            }
+
         </style>
     </head>
+
     <body>
         <div class = "main">
+
            <div class = "container">
-               <div class = "title" style="width:100%;">
-                   <h1 class="ts" style="font-family: 'Roboto Slab', serif; margin:auto;text-align: center;padding-top:50px;color:white;font-size:100px;">Thought<font style="color:#a5dcf3;"><b>Space</b></font></h1>
+                <!-- Title -->
+               <div class = "title">
+                   <h1 class="wtf" >Thought<font class="space">Space</font></h1>
                </div>
-                <!-- Nav Bar
-                <nav class="navbar navbar-expand-lg navbar-light ">
-                    <a class="navbar-brand" href="#" style = "font-weight: bold;color: #E9F6FC;">ThoughtSpace</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style = "margin-left: 70%;">
-                    Add Pages Later?
-                      <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="#" style = "color: white;">About</a>
-                        <a class="nav-item nav-link" href="#" style = "color: white;">Sign In</a>
-                        <a class="nav-item nav-link" href="#" style = "color: white;">Login</a>
-                      </div>
-                    </div>
-                </nav> -->
+                
                 <div class = "row">
-                    <!-- Slogan -->
-                    <div class = "col-sm w3-animate-left" >
-                        <p style = "font-weight: bold; color:white; font-size:50px; margin-top:20%">Analyzing your patterns to better show you... <font style="color:white;font-family: 'Roboto Slab', serif;color:#4bb8e7;">you!</font></p>
-                        <button type="button" class="btn btn-outline-primary" style ="border-color: #1FA6E0; color:#1fa6e0;font-weight: bold; width:150px; height: 60px" onclick= "window.location.href = 'setup.html';">Get Started <i class='fas fa-arrow-right'></i></button>
+                    <!-- Slogan & Start Button -->
+                    <div class = "col-sm w3-animate-left">
+                        <p class="slogan">Analyzing your patterns to better show you... <font class="you">you!</font></p>
+                        <button type="button" class="btn btn-outline-primary" onclick= "window.location.href = 'setup.html'">Get Started <i class='fas fa-arrow-right'></i></button>
                     </div>
                     <!-- Logo -->
                     <div class = "col w3-animate-left" >
-                        <img src ="TSwhite.png" style = "width: 70%; height:auto; margin-top:20%;margin-left:25%" id= "div2">
+                        <img class="logo" src ="TSwhite.png" id= "div2">
                     </div>
                 </div>
             </div>
-        </div>
-        <div class = "container">
-            <div class = "row">
-                <div class = "col">
-                </div>
-            </div>
+
         </div>
     </body>
+
 </html>

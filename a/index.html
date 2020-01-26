@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Page Setup -->
+        <title>ThoughtSpace</title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content=" initial-scale=1.0">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" href="../public/img/finalLogo2.png">
+        <link rel="shortcut icon" type="image/x-icon" href="TSdark.png" />
+        
+        <!-- Style -->
+        <style>
+            /* Home Page */
+            body {
+                font-family: 'Roboto', sans-serif;
+                background-color: #D2EDF9;
+            }
+            .main {
+                background-image : linear-gradient(#1FA5DE, #D2EDF9);
+                background-position: center;
+                height: 700px;
+                width: 100%;
+            }
+            .container {
+                width: 100%;
+            }
+            
+            /* Title */
+            .title {
+                width:100%;
+            }
+            .wtf {
+                font-family: 'Roboto Slab', serif;
+                margin:auto;
+                text-align: center;
+                padding-top:50px;
+                color:white;
+                font-size:100px;
+            }
+            .space {
+                color:#a5dcf3;
+                font-weight: bold;
+            }
+
+            /* Slogan & Start Button */
+            .slogan {
+                font-weight: bold;
+                color:white;
+                font-size:50px;
+                margin-top:20%
+            }
+            .you {
+                color:white;
+                font-family: 'Roboto Slab', serif;
+                color:#4bb8e7;
+            }
+            .btn-outline-primary {
+                border-color: #1FA6E0;
+                color:#1fa6e0;
+                font-weight: bold;
+                width:150px;
+                height: 60px; 
+            }
+            .btn-outline-primary:hover {
+                background-color:#E9F6FC;
+            }
+            .btn-outline-primary:visited{
+                background-color:#E9F6FC;
+            }
+            
+            /* Logo */
+            .logo {
+                width: 70%;
+                height:auto;
+                margin-top:20%;
+                margin-left:25%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class = "main">
+
+           <div class = "container">
+                <!-- Title -->
+               <div class = "title">
+                   <h1 class="wtf" >Thought<font class="space">Space</font></h1>
+               </div>
+                
+                <div class = "row">
+                    <!-- Slogan & Start Button -->
+                    <div class = "col-sm w3-animate-left">
+                        <p class="slogan">Analyzing your patterns to better show you... <font class="you">you!</font></p>
+                        <button type="button" class="btn btn-outline-primary" onclick= "window.location.href = 'setup.html'">Get Started <i class='fas fa-arrow-right'></i></button>
+                    </div>
+                    <!-- Logo -->
+                    <div class = "col w3-animate-left" >
+                        <img class="logo" src ="TSwhite.png" id= "div2">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

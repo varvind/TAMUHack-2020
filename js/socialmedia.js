@@ -2,46 +2,39 @@
 var documents = {
     'documents': []
 };
-var https = require('https');
-var URL = require('url').URL;
-var subscription_key = "4810c1da73d649789ab462fc1ddc54af";
-var endpoint = "https://eastus.api.cognitive.microsoft.com/";
+var facebook_res = 0;
 
-var path = '/text/analytics/v2.1/sentiment';
+document.onload = function(){
+    var https = require('https');
+    var URL = require('url').URL;
+    var subscription_key = "4810c1da73d649789ab462fc1ddc54af";
+    var endpoint = "https://eastus.api.cognitive.microsoft.com/";
 
-var response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-        score_num = parseFloat('0.' + body.match(/\d+/g)[2]);
-        // console.log(score_num);
-    });
-    response.on('end', function () {
-        let body_ = JSON.parse(body);
-        let body__ = JSON.stringify(body_, null, '  ');
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
-
-var get_sentiments = function (documents) {
-    var body = JSON.stringify(documents);
-
-    var request_params = {
-        method: 'POST',
-        hostname: (new URL(endpoint)).hostname,
-        path: path,
-        headers: {
-            'Ocp-Apim-Subscription-Key': subscription_key,
-        }
-    };
-
-    var req = https.request(request_params, response_handler);
-    req.write(body);
-    req.end();
+    var path = '/text/analytics/v2.1/sentiment';
 }
 
+async function get_sentiments(documents) {
+    const endpoint = "https://eastus.api.cognitive.microsoft.com/";
+    const subscription_key = "4810c1da73d649789ab462fc1ddc54af";
+    const path = '/text/analytics/v2.1/sentiment';
+    
+    let body = JSON.stringify(documents);
+
+    console.log(body);
+
+    let request_params = {
+        method: 'POST',
+        headers: {
+            'Ocp-Apim-Subscription-Key': subscription_key,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: body
+    };
+
+    const response = await fetch(endpoint + path, request_params);
+    return await response.json();
+};
 
 function FacebookClick()
 {
@@ -71,6 +64,7 @@ function FacebookClick()
                       {
                           console.log(documents)
                           documents.documents.push({'id': idNum, 'language': 'en', 'text': postMessage.message});
+                          idNum = idNum + 1
                       }
                           
                   });
@@ -109,6 +103,13 @@ function InstagramClick()
 }
 function GetResults()
 {
-    window.location.href = "results.html";
-    // get_sentiments(documents);
+    get_sentiments(documents).then((json) => {
+        facebook_res = (json.documents[0].score);
+        document.cookie = "A|A" + facebook_res;
+        console.log(document.cookie)
+        window.location.href = "results.html";
+    });
+     // "FUCKYOMAMA<div class=\"c100 p"
+        //  + facebook_res
+        //  + ""
 }

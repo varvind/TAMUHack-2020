@@ -41,30 +41,6 @@ let response_handler = function (response) {
     });
 };
 
-let get_sentiments = function (documents) {
-    let body = JSON.stringify(documents);
-
-    let request_params = {
-        method: 'POST',
-        hostname: (new URL(endpoint)).hostname,
-        path: path,
-        headers: {
-            'Ocp-Apim-Subscription-Key': subscription_key,
-        }
-    };
-
-    let req = https.request(request_params, response_handler);
-    req.write(body);
-    req.end();
-}
-
-let documents = {
-    'documents': [
-        { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' }
-    ]
-};
-var social_media_type = 'social';
-get_sentiments(documents);
 
 function FacebookClick() {
     window.fbAsyncInit = function() {
