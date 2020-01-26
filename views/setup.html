@@ -14,15 +14,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
         <title>ThoughtSpace</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        
+        <link rel="shortcut icon" type="image/x-icon" href="TSdark.png" />
+        <script src="../js/socialmedia.js"></script>
         <style>
             body {
                 font-family: 'Roboto', sans-serif;
-                background-color: #E9F6FC;
+                background-color: #D2EDF9;
             }
             .main {
-                background-image : linear-gradient(#1FA5DE, #E9F6FC);
+                background-image : linear-gradient(#1FA5DE, #D2EDF9);
                 background-position: center;
                 height: 700px;
                 width: 100%;
@@ -31,87 +33,18 @@
                 width: 100%;
             }
             .btn-outline-primary:hover {
-                background-color:lightblue;
-                
+                background-color:#E9F6FC;
             }
             .btn-outline-primary:visited{
-                background-color:lightblue;
-                
-            }
-            .switch {
-                position: relative;
-                display: inline-block;
-                width: 60px;
-                height: 34px;
-            }
-
-            .switch input { 
-                opacity: 0;
-                width: 0;
-                height: 0;
-            }
-            
-            .slider {
-                position: absolute;
-                cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #ccc;
-                -webkit-transition: .4s;
-                transition: .4s;
-            }
-
-            .slider:before {
-                position: absolute;
-                content: "";
-                height: 26px;
-                width: 26px;
-                left: 4px;
-                bottom: 4px;
-                background-color: white;
-                -webkit-transition: .4s;
-                transition: .4s;
-            }
-
-            input:checked + .slider {
-                background-color: #2196F3;
-            }
-
-            input:focus + .slider {
-                box-shadow: 0 0 1px #2196F3;
-            }
-
-            input:checked + .slider:before {
-                -webkit-transform: translateX(26px);
-                -ms-transform: translateX(26px);
-                transform: translateX(26px);
-            }
-
-            /* Rounded sliders */
-            .slider.round {
-                border-radius: 34px;
-            }
-
-            .slider.round:before {
-                border-radius: 50%;
-            }
-            .buttons {
-                width: 1000px;
-                height: 100px;
-                position: absolute;
-                left: 50%;
-                margin-left: -50px;
+                background-color:#E9F6FC;
             }
         </style>
-
     </head>
     <body>
         <div class = "main">
             <div class = "container">
                 <nav class="navbar navbar-expand-lg navbar-light ">
-                    <a class="navbar-brand" href="index.html" style = "font-weight: bold;color: aliceblue;">ThoughtSpace</a>
+                    <a class="navbar-brand" href="index.html" style = "color: white; font-family: 'Roboto Slab', serif;">Thought<font style="color:#a5dcf3;"><b>Space</b></font></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -123,60 +56,31 @@
                         <a class="nav-item nav-link" href="#" style = "color: white;">Login</a>
                     </div>
                     -->
-                    <a href = "index.html"><img src ="TS.png" style = "width: 30px; height: 30px;"></a>
+                    <a href = "index.html"><img src ="TSwhite.png" style = "width: 30px; height: 30px;margin-left: 45px;"></a>
                     </div>
                 </nav>
+                <br>
                 <div class = "container">
-                    <h1 style = "text-align: center; color:white">Lets get to know you real quick!</h1>
+                    <h1 style = "text-align: center; color:#e9f6fc; font-family: 'Roboto Slab', serif; font-size: 70px; ">Let's get to know you!</h1>
                     <div class = "row" style = "margin-top: 7%;">
-                        
                         <div class = "col">
-                            <button id = "FacebookButton" onclick="FacebookClick()" class="btn btn-outline-primary"  style = "width: 338px; height: 70px; border-color: white; color:white; margin-top:5%; font-size: 150%; font-weight: bold;">Login to Facebook</button>
+                            <button id = "FacebookButton" onclick="FacebookClick()" class="btn btn-outline-primary"  style = "width: 338px; height: 70px; border-color: white; color:white; margin-top:5%; font-size: 150%; font-weight: bold; background-color: #35afe3;">Login to Facebook</button>
                         </div>
                         <div class = "col">
-                            <button id = "SpotifyButton" onclick="SpotifyClick()" class="btn btn-outline-primary" style="width: 338px ; height: 70px; border-color: white; color:white ; margin-top:5%; font-size: 150%; font-weight: bold; " >Login to Spotify</button>
+                            <button id = "SpotifyButton" onclick="SpotifyClick() class="btn btn-outline-primary" style="width: 338px ; height: 70px; border-color: white; color:white ; margin-top:5%; font-size: 150%; font-weight: bold;  background-color: #35afe3;" >Login to Spotify</button>
                         </div>
                         <div class = "col">
-                            <button id = "TwitterButton" onclick="TwitterClick()" class="btn btn-outline-primary"  style="width: 338px ; height: 70px; border-color: white; color:white ; margin-top:5%; font-size: 150%; font-weight: bold; ">Login to Twitter</button>
+                            <button id = "TwitterButton" onclick="TwitterClick() class="btn btn-outline-primary"  style="width: 338px ; height: 70px; border-color: white; color:white ; margin-top:5%; font-size: 150%; font-weight: bold;  background-color: #35afe3;">Login to Twitter</button>
                         </div>
-                        
-                        <script src = "../app.js"></script>
-                    
                 </div>
-                <!-- <div class = "row">
-                    <div class = "col">
-                        <label class="switch" style = "margin-top:5%;  position: absolute; left: 55%; margin-left: -50px;">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class = "col">
-                        <label class="switch" style = "margin-top:5%;  position: absolute; left: 55%; margin-left: -50px;">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class = "col">
-                        <label class="switch" style = "margin-top:5%;  position: absolute; left: 55%; margin-left: -50px;">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                </div> -->
-
-                
             </div>
         </div>
         <div class = container>
             <div class = "row">
                 <div class = "col">
-                    <button onclick = "GetResults()" class = "btn btn-outline-primary" style = "width:600px; height: 100px; margin-top:10%;position: absolute; left: 28%; margin-left: -50px; border-color: white; color:white ; font-size: 150%">Get Your Results!</button>
+                    <button class = "btn btn-outline-primary" style = "width:600px; height: 100px; margin-top:10%;position: absolute; left: 28%; margin-left: -50px; border-color: #1FA6E0; color:#1FA6E0; font-size: 30px;" onclick="GetResults()"><b>Let's go!</b></button>
                 </div>
-                
             </div>
         </div>
-        
-        
-        
     </body>
 </html>

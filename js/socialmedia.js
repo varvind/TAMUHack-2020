@@ -1,13 +1,15 @@
 'use strict';
-
-let https = require('https');
+var documents = {
+    'documents': []
+};
+var https = require('https');
 var URL = require('url').URL;
 var subscription_key = "4810c1da73d649789ab462fc1ddc54af";
 var endpoint = "https://eastus.api.cognitive.microsoft.com/";
 
-let path = '/text/analytics/v2.1/sentiment';
+var path = '/text/analytics/v2.1/sentiment';
 
-let response_handler = function (response) {
+var response_handler = function (response) {
     let body = '';
     response.on('data', function (d) {
         body += d;
@@ -23,10 +25,10 @@ let response_handler = function (response) {
     });
 };
 
-let get_sentiments = function (documents) {
-    let body = JSON.stringify(documents);
+var get_sentiments = function (documents) {
+    var body = JSON.stringify(documents);
 
-    let request_params = {
+    var request_params = {
         method: 'POST',
         hostname: (new URL(endpoint)).hostname,
         path: path,
@@ -35,18 +37,11 @@ let get_sentiments = function (documents) {
         }
     };
 
-    let req = https.request(request_params, response_handler);
+    var req = https.request(request_params, response_handler);
     req.write(body);
     req.end();
 }
 
-let documents = {
-    'documents': [
-        { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' }
-    ]
-};
-var social_media_type = 'social';
-get_sentiments(documents);
 
 function FacebookClick()
 {
@@ -64,9 +59,9 @@ function FacebookClick()
               if (response.authResponse) {
           document.querySelector('#FacebookButton').disabled = true;
           /* make the API call */
+          let idNum = 1;
           FB.api(
               "/" + response.authResponse.userID + "/posts",
-              {'since':'last year'},
               function (responsePost) {
                 if (responsePost && !responsePost.error) {
                   /* handle the result */
@@ -74,7 +69,8 @@ function FacebookClick()
                   responsePost.data.forEach(postMessage => {
                       if(postMessage.hasOwnProperty('message'))
                       {
-                          console.log(postMessage.message)
+                          console.log(documents)
+                          documents.documents.push({'id': idNum, 'language': 'en', 'text': postMessage.message});
                       }
                           
                   });
@@ -110,4 +106,9 @@ function SpotifyClick()
 function InstagramClick()
 {
     
+}
+function GetResults()
+{
+    window.location.href = "results.html";
+    // get_sentiments(documents);
 }
